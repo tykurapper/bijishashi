@@ -1,5 +1,5 @@
-<!--<h2>マイプロフィール設定 <%= resource_name.to_s.humanize %></h2>-->
-<h2>マイプロフィール設定</h2>
+
+<h2>プロフィールを編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -13,39 +13,23 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
   
-  
-  
-  
-  
-  
   <div class="field">
     <%= f.label :名前 %>
     <%= f.text_field :fullname %>
   </div>
   
- <div class="field">
-    <%= f.label :生年月日 %>
-    <%= f.date_field :birthday %>
-  </div>
+
+
   
   <div class="field">
-    <%= f.label :興味 %>
-    <%= f.text_field :favourite %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :バイオ %>
+    <%= f.label :自己紹介 %>
     <%= f.text_field :info %>
   </div>
   
   <h2>パスワード変更</h2>
   
-  
-  
-  
   <div class="field">
-    <%= f.label :古いパスワード %>
-    <!--<%= f.label :古いパスワード %> <i>(we need your current password to confirm your changes)</i><br />-->
+    <%= f.label :現在のパスワード %>
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
   
@@ -59,7 +43,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :"新しいパスワード(確認)" %>
+    <%= f.label :"新しいパスワードを再入力" %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -73,12 +57,12 @@
   
 
   <div class="actions">
-    <%= f.submit "プロフィール編集" %>
+    <%= f.submit "送信" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>アカウントを削除</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
