@@ -9,7 +9,10 @@
 		</div>
 		<div class="user-info col-md-4">
 			<h3><%= @user.email %></h3>
-			<h4><%= @images.size  %> posts</h4>		
+			<h4><%= @images.size  %> posts</h4>	
+			<% if @user.id == current_user.id%>
+				<%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-default" %>
+			<% end %>	
 		</div>
 	</div>
 </div>
