@@ -11,12 +11,8 @@
 	margin: auto;
 }
 
-.user-avatar{
-	position: absolute;
-	z-index: 2;
-	top: -60px;
-	left: 0px;
-	color:#FFF;
+.user-info {
+  text-align: left;
 }
 
 
@@ -86,11 +82,9 @@
 }
 
 .one-post{
-    padding: 15px;
-    
+    padding: 0px;   
     background-color: #fafafa;
     margin-bottom: 15px;
-    word-break: break-all;
     -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);

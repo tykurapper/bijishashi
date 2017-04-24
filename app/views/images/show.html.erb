@@ -1,31 +1,46 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @image.user.email %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @image.title %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <% if @image.category%>
-  <%= @image.category.name %>
-  <% end %>
-</p>
-
-<p>
-  <strong>File:</strong>
-  <%= image_tag @image.file %>
-</p>
-
-<p>
-  <strong>Created at:</strong>
-  <%= @image.created_at %>
-</p>
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<div class="image-show row">
+  <div class="col-md-6">
+    <%= image_tag @image.file, class: "img-responsive"%>
+  </div>
+  <div class="col-md-6">
+    <p>
+      <strong><%= link_to @image.user.email, :controller => "users", :action => "show", :id => current_user.id %></strong> at  <strong><%= @image.created_at %> </strong>   
+    </p>
+    <h3>
+      <%= @image.title %>
+    </h3>
+    <div class="new-comment">
+      <!-- <h2>コメントフォーム</h2> -->
+      <%= form_for(@image_comment) do |f| %>
+      <div class= "field">
+        <%#= f.label :comment %><br>
+        <%= f.text_field :comment , placeholder: 'Comment here...'%>
+        <%= f.hidden_field :image_id, :value => @image.id %>
+        <%= f.submit 'Submit'%>
+      </div>
+      <% end %>
+    </div>
+    <br>
+    <% if @image.image_comment %>
+    <div class = "image-comment">
+      <!-- <h2>コメント一覧</h2> -->
+      <ul>
+        <% @image.image_comment.each do |image_comment|%>
+        <li>
+          <% if image_comment.user %><strong><%= link_to image_comment.user.email, :controller => "users", :action => "show", :id => image_comment.user.id %></strong>
+          <% else %>
+            <strong>Unknown User</strong>
+          <% end %>
+          <%= image_comment.comment %>
+        </li>
+          <% end %>
+        </ul>
+    </div>
+    <br>
+    <% end %>
+    <%= link_to 'Back', {:controller => "users", :action => "show", :id => @image.user.id}, class: "btn btn-default"%>
+    <% if current_user.id == @image.user.id %>
+    <%= link_to 'Edit', edit_image_path(@image) , class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
