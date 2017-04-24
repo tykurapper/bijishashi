@@ -5,7 +5,12 @@
 	<div class="col-md-10 col-md-offset-1">
 		<div class = "col-md-3"> </div>
 		<div class="user-avatar col-md-2">
-			<img class="profile-image img-circle img-responsive" src="http://mp3red.me/cover/4665479-460x460/animal-island.jpg" >
+			<!-- <img class="profile-image img-circle img-responsive" src="http://mp3red.me/cover/4665479-460x460/animal-island.jpg" > -->
+			<% if @user.avatar %>
+				<%= image_tag @user.avatar, class: "profile-image img-circle img-responsive" %>
+			<% else %>
+				<img class="profile-image img-circle img-responsive" src="https://www.timeshighereducation.com/sites/default/files/byline_photos/default-avatar.png" >
+			<% end %>
 		</div>
 		<div class="user-info col-md-4">
 			<h3><%= @user.email %></h3>
