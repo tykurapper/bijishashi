@@ -7,30 +7,46 @@
 		<div class="user-avatar col-md-2">
 			<!-- <img class="profile-image img-circle img-responsive" src="http://mp3red.me/cover/4665479-460x460/animal-island.jpg" > -->
 			<% if @user.avatar %>
-				<%= image_tag @user.avatar, class: "profile-image img-circle img-responsive" %>
+			<%= image_tag @user.avatar, class: "profile-image img-circle img-responsive" %>
 			<% else %>
-				<img class="profile-image img-circle img-responsive" src="https://www.timeshighereducation.com/sites/default/files/byline_photos/default-avatar.png" >
+			<img class="profile-image img-circle img-responsive" src="https://www.timeshighereducation.com/sites/default/files/byline_photos/default-avatar.png" >
 			<% end %>
 		</div>
 		<div class="user-info col-md-4">
 			<h3><%= @user.email %></h3>
 			<h4><%= @images.size  %> posts</h4>	
 			<% if @user.id == current_user.id%>
-				<%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-default" %>
+			<%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-default" %>
+			<% else %>
+			<% if current_user != @user %>
+			<div id="follow_form">
+				<% if current_user.following?(@user) %>
+				<%= render 'unfollow' %>
+				<% else %>
+				<%= render 'follow' %>
+				<% end %>
+			</div>
+			<% end %>
 			<% end %>	
 		</div>
+		<section class="stats">
+			<%= render 'shared/stats' %>
+		</section>
+		
+
+
 	</div>
 </div>
 <br>
 <br>
 <div class="row">	
 	<div class="col-md-10 col-md-offset-1">
-    	<% @images.each do |image| %>
-    		<div class="square">
-    			<div class="square-content">
-    				<%= link_to image_tag(image.file, alt: "image", class: "img-responsive"), image %>
-    			</div>
-    		</div>
-    	<% end %>
+		<% @images.each do |image| %>
+		<div class="square">
+			<div class="square-content">
+				<%= link_to image_tag(image.file, alt: "image", class: "img-responsive"), image %>
+			</div>
+		</div>
+		<% end %>
 	</div>
 </div>

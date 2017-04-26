@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th><FIGURE></FIGURE>avourite</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <% @user.each do |user| %>
+            <tr>
+                <td><%= user.email %></td>
+                <td><%=  user.favourite %></td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span>Follow</a> 
+                </td>
+            </tr>
+         <% end %> 
+        </table>
+    </div>
+</div>
