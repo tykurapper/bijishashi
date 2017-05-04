@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   resources :image_comments
-  resources :images
   root 'static_pages#home'
   get 'static_pages/home'
 
   devise_for :users
-  resources :images
+  resources :images do
+    resource :like
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
