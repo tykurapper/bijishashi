@@ -1,34 +1,28 @@
-<div class="container">
-	<div class="present">
-		<div class="present-text">
-			<h3>Find your inspiration.</h3>
-			<div class="present-content">Join the Bijishashi community.
-			</div>
-			<% if user_signed_in? %>
+	<% if user_signed_in? %>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
 			<% @image.each do |image| %>
-			<br><br><br>
-			<div class="abou<!-- t-us" id="about-path">
-				<div class="wrapper" id="wrapper1">
-					<div class="image-wrapper">
-						<%= image_tag(image.file, alt: "Picture", title: "Picture") %>
+			<div class="one-image row">
+				<div class="one-image_user col-md-10">
+					<div class="col-md-1">
+						<img class="profile-image img-circle img-responsive" src="https://www.timeshighereducation.com/sites/default/files/byline_photos/default-avatar.png" >
 					</div>
-					<div class="section-content">
-						<div class="content-wrapper">
-							<div class="content-title">
-								<h3><%= image.title %></h3>
-							</div>
-							<div class="content-main">
-							<%= image.user_id %>
-							</div>
-						</div>
-					</div>
+					<%= link_to image.user.email, showuser_path(image.user) %>
+				</div>
+				<div class="col-md-10 col-md-offset-1">
+					<%= link_to image_tag(image.file, alt: "Picture", title: "Picture", class: "img-responsive"), image %>
 				</div>
 			</div>
-			<hr>
+			<br>
 			<% end %>
-			<% else %>
-			<a href="/users/sign_up" class="join-btn">Sign Up Now</a>
-			<% end  %>
 		</div>
 	</div>
-</div>
+	<hr>
+	
+
+	<% else %>
+	<h3>Find your inspiration.</h3>
+	<div class="present-content">Join the Bijishashi community.
+	</div>
+	<a href="/users/sign_up" class="join-btn">Sign Up Now</a>
+	<% end  %>

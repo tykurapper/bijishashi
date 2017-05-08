@@ -66,25 +66,28 @@
   overflow: auto;
   margin-top: 0;
   padding: 0;
-  a {
+  
+  
+}
+.stats a {
     float: left;
     padding: 0 10px;
     border-left: 1px solid $gray-lighter;
     color: gray;
-    &:first-child {
+  }
+
+.stats a:first-child {
       padding-left: 0;
       border: 0;
     }
-    &:hover {
+.stats a:hover {
       text-decoration: none;
-      color: blue;
+      color: #337ab7;
     }
-  }
-  strong {
+
+.stats a strong {
     display: block;
   }
-}
-
 .user_avatars {
   overflow: auto;
   margin-top: 10px;
@@ -95,7 +98,20 @@
     padding: 0;
   }
 }
-
+.show_follow {
+  margin-top: 10px;
+}
 .users.follow {
   padding: 0;
 }
+.one-image {
+  border-radius: 10px;
+  background-color: #eee;
+  margin: 5px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.one-image img {margin: 5px auto;}
+.one-image_user a { display: block; padding-top: 5px; padding-bottom: 3px; padding-left: 5px; color: black; margin-left: 15px;}
+.one-image_user a:hover {text-decoration: none; color: #377ab7;}
