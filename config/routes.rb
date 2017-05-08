@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
   resources :image_comments
   root 'static_pages#home'
-  get 'static_pages/home'
+  get 'user' => 'users#index'
 
 
   devise_for :users
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+resources :relationships,       only: [:create, :destroy]
+get '/user/:id' => 'users#show'
   resources :images do
     resource :like
   end
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-
   get '/user/:id' => 'users#show', as: 'showuser'
-
 end
