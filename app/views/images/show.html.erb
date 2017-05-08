@@ -33,8 +33,13 @@
           <% end %>
           <%= image_comment.comment %>
         </li>
-          <% end %>
-        </ul>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+      <div id="post_<%= @image.id %>_likes">
+        <%= render "likes/likes", post: @image %>
+      </div>
     </div>
     <br>
     <% end %>
