@@ -29,4 +29,11 @@ class User < ActiveRecord::Base
   def following?(other_user)
   	following.include?(other_user)
   end
+
+  has_many :likes
+
+  def likes?(post)
+    post.likes.where(user_id: id).any?
+  end
+
 end

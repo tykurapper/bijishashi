@@ -25,7 +25,8 @@
     <%= f.label :自己紹介 %>
     <%= f.text_field :info %>
   </div>
-  
+
+  <%= f.hidden_field :id %>
   <h2>パスワード変更</h2>
   
   <div class="field">
@@ -49,7 +50,7 @@
 
   <div class="field">
     <%= f.label 'アバターの写真' %>
-    <%= f.file_field :file %>
+    <%= f.file_field :avatar %>
   </div>
   
 
