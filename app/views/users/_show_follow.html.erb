@@ -6,7 +6,7 @@
     <div class="user_avatars">
       <% @users.each do |user| %>
       <br></br>
-      <%= user.email %>
+      <%= link_to(user.email, showuser_path(user))%>
       <% end %>
     </div>
     <% end %>
