@@ -118,3 +118,25 @@
 form #result-box{display: none; max-height: 300px; overflow-y: auto; overflow-x: hidden; position: absolute; background-color: #fff; border: 1px solid #eee; border-top: 0; width: 197px; max-height: 300px; line-height: 2em; font-size: 14px;}
 form #result-box > a {color: #777; display: block; padding-left: 10px;}
 form #result-box > a:hover {color: black; background-color: #eee; text-decoration: none;}
+.table a {
+  color: #777;
+}
+.table a:hover{
+  color: #3771b7;
+  text-decoration: none;
+}
+.table {
+  border-radius: 5px;
+}
+.comment {
+  display: inline-block;
+  width: 60%;
+  vertical-align: center;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  height: 34px;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  font-size: 14px;
+  vertical-align: middle;
+}

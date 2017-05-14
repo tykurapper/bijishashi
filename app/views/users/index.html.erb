@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle">
-        <table class="table table-striped custab">
+        <table class="table table-hover custab">
             <thead>
                 <tr>
-                    <th>Username</th>
+                    <th>Email</th>
                     
                     <th class="text-center">Action</th>
                 </tr>
@@ -12,7 +12,9 @@
             <tr>
                 <td><%= link_to(user.email, showuser_path(user)) %></td>
                 
-                <td class="text-center"><% if current_user != user %>
+                <td class="text-center">
+                    <% if user_signed_in? %>
+                    <% if current_user != user %>
                                               <div id="follow_form">
                                                 <% if current_user.following?(user) %>
                                                 <%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
@@ -27,7 +29,8 @@
                                                         <% end %>
                                                 <% end %>
                                               </div>
-                                              <% end %> 
+                                              <% end %>
+                                              <% end %>
                 </td>
             </tr>
          <% end %> 
